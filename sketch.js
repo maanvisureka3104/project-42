@@ -85,6 +85,7 @@ function draw() {
     restart.visible = false
     //move the ground
     ground.velocityX = -(4+score/100);
+    camera.position.x=ground.x
     //scoring
     score = score + Math.round(getFrameRate()/60);
     
@@ -94,6 +95,7 @@ function draw() {
     
     //jump when the space key is pressed
     if(keyDown("space")&& trex.y >= 100) {
+       camera.position.y=trex.y
         trex.velocityY = -12;
       jumpSound.play();
     }
