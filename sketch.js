@@ -48,7 +48,7 @@ function setup() {
   trex.debug = false;
   
   
-  ground = createSprite(200,180,400,20);
+  ground = createSprite(displayWidth/2,180,displayWidth,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
   
@@ -85,7 +85,6 @@ function draw() {
     restart.visible = false
     //move the ground
     ground.velocityX = -(4+score/100);
-    camera.position.x=ground.x
     //scoring
     score = score + Math.round(getFrameRate()/60);
     
@@ -95,7 +94,7 @@ function draw() {
     
     //jump when the space key is pressed
     if(keyDown("space")&& trex.y >= 100) {
-       camera.position.y=trex.y
+       camera.position.x=trex.x
         trex.velocityY = -12;
       jumpSound.play();
     }
